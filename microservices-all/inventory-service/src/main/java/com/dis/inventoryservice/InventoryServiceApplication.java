@@ -18,12 +18,12 @@ public class InventoryServiceApplication {
 	public CommandLineRunner loadData(InventoryRepository inventoryRepository){
 		return args -> {
 			Inventory inventory = new Inventory();
-			inventory.setSkuCode("xiomi x3");
+			inventory.setSkuCode("xiomi_x3");
 			inventory.setQuantity(100);
 
 			Inventory inventory1 = new Inventory();
-			inventory1.setSkuCode("xiomi poco");
-			inventory1.setQuantity(10);
+			inventory1.setSkuCode("xiomi_poco");
+			inventory1.setQuantity(0);
 
 			inventoryRepository.save(inventory);
 			inventoryRepository.save(inventory1);

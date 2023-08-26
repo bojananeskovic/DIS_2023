@@ -1,5 +1,6 @@
 package com.dis.inventoryservice.controller;
 
+import com.dis.inventoryservice.dto.InventoryResponse;
 import com.dis.inventoryservice.service.InventoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +16,13 @@ import java.util.List;
 public class InventoryController {
 
     private final InventoryService inventoryService;
-    @GetMapping("/{sku-code}")
+
+    // http://localhost:8082/api/inventory/xiomi-x3,xiomi-poco
+
+    // http://localhost:8082/api/inventory?skuCode=xiomi-x3&skuCode=xiomi-poco
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public boolean isInStock(@PathVariable("sku-code") String skuCode) {
+    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode) {
         return inventoryService.isInStock(skuCode);
     }
 }

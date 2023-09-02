@@ -12,3 +12,9 @@ This application implements a microservice system for online shopping. The micro
 - API Gateway - Entry point for all client-side requests, enabling access control, request routing, and data authentication from various microservices.
 
 ## Microservice system diagram
+
+![](microservices-all/diagrams/Application_architecture.jpg "Application architecture")
+
+### Discovery Service
+
+![](microservices-all/diagrams/Service_discovery.jpg "Service discovery")

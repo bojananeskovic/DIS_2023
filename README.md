@@ -1,8 +1,8 @@
-# DISTRIBUTED INFORMATION SYSTEMS
+## DISTRIBUTED INFORMATION SYSTEMS
 
-# Online Shopping Application - Microservices
+## Online Shopping Application - description of business logic
 
-This application implements a microservice system for online shopping. The microservice system consists of the following services:
+This application implements a microservice system for online shopping. The microservice system (implemented using `Spring Boot` and `Spring Cloud`) consists of the following services:
 
 - Product Service - This microservice has the role of a catalog and it is possible to create new products and view all products from the catalog.
 - Order Service - This microservice is for ordering products.
@@ -13,11 +13,15 @@ This application implements a microservice system for online shopping. The micro
 
 ## Microservice system diagram
 
+The microservice architecture is shown in the figure below.
+
 ![](microservices-all/diagrams/Application_architecture.jpg "Application architecture")
 
-### Discovery Service
+As for the databases that microservices communicate with, the Product service is talking to a `MongoDB`, the Order service is talking to the `MySQL` and the Inventory service is talking also to the `MySQL` database, to store all the inventory information. Notification service is a `stateless service` which doesn't have any database because it is responsible to send out notifications to users.
 
-![](microservices-all/diagrams/Service_discovery.jpg "Service discovery")
+Also, synchronous and asynchronous communication between services has been established. `Kafka` was used for asynchronous communication. Services are secured using the authorization server called as `Keycloak`.
+
+### Discovery Service
 
 ## Pipeline Management Guide
 

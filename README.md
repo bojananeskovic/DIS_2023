@@ -18,3 +18,18 @@ This application implements a microservice system for online shopping. The micro
 ### Discovery Service
 
 ![](microservices-all/diagrams/Service_discovery.jpg "Service discovery")
+
+## Pipeline Management Guide
+
+- Run the application using Docker
+
+```bash
+  mvn clean package -DskipTests
+  docker-compose up -d
+```
+- Run the application without Docker
+
+```bash
+  mvn clean verify -DskipTests
+  mvn spring-boot:run
+```

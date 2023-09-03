@@ -23,6 +23,14 @@ Also, synchronous and asynchronous communication between services has been estab
 
 ### Discovery Service
 
+The Discovery Server ([Eureka Server](https://spring.io/projects/spring-cloud-netflix)), is a crucial component in a microservices architecture. Its primary purpose is to enable service discovery and registration, making it an essential tool for managing the dynamic and distributed nature of microservices. In a project, the Discovery Server serves as a central directory where microservices can register themselves upon startup. Each microservice instance sends its metadata (such as service name, host, and port) to the Discovery Server. This information is then made available to other microservices, allowing them to locate and communicate with each other.
+
+![](microservices-all/diagrams/Service_discovery.jpg "Service discovery")
+
+### API Gateway
+
+
+
 ## Pipeline Management Guide
 
 - Run the application using Docker

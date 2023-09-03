@@ -19,7 +19,7 @@ The microservice architecture is shown in the figure below.
 
 As for the databases that microservices communicate with, the Product service is talking to a `MongoDB`, the Order service is talking to the `MySQL` and the Inventory service is talking also to the `MySQL` database, to store all the inventory information. Notification service is a `stateless service` which doesn't have any database because it is responsible to send out notifications to users.
 
-Also, synchronous and asynchronous communication between services has been established. `Kafka` was used for asynchronous communication. Services are secured using the authorization server called as `Keycloak`.
+Also, synchronous and asynchronous communication between services has been established. [Kafka](https://spring.io/projects/spring-kafka) was used for asynchronous communication. Services are secured using the authorization server called as [Keycloak](https://www.keycloak.org/getting-started/getting-started-docker).
 
 ### Discovery Service
 
@@ -29,7 +29,25 @@ The Discovery Server ([Eureka Server](https://spring.io/projects/spring-cloud-ne
 
 ### API Gateway
 
+[API Gateway](https://spring.io/projects/spring-cloud-gateway) acts as a reverse proxy, aggregating and managing requests, routing them to the appropriate microservices, and providing essential functionalities such as authentication, authorization, load balancing, and request transformation. Instead of clients needing to communicate directly with multiple services, they can interact solely with the API Gateway, which abstracts the complexities of the underlying microservices architecture.
 
+![](microservices-all/diagrams/API_gateway.jpg "API Gateway")
+
+### Circuit Breaker
+
+[Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker) is a software pattern used in distributed systems to enhance their resilience and fault tolerance. It helps prevent cascading failures in a system by temporarily "opening" the circuit to a service that is experiencing issues. When the circuit is open, requests to the problematic service are automatically stopped or redirected, allowing the service to recover. For implementing a Circuit Breaker pattern in a microservice application, we are using the `Resilience4j` library.
+
+### Distributed Tracing
+
+Microservices are set up to send trace data to the `Zipkin` server asynchronously via message brokers. [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) is used to gather and maintain this trace information within memory.
+
+### Prometheus and Grafana
+
+Prometheus and Grafana are commonly used for `monitoring` and observability in distributed systems and microservices architectures. Prometheus is used for collecting and storing time-series data, while Grafana is used for visualizing and analyzing this data. 
+
+### Docker
+
+Docker Compose serves as a tool for defining and orchestrating multi-container Docker applications. It leverages a user-friendly YAML file, `docker-compose.yml`, to specify the configuration of services, which can be effortlessly created and initiated by the Docker Daemon.
 
 ## Pipeline Management Guide
 
